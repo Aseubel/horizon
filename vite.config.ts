@@ -13,13 +13,13 @@ export default defineConfig({
   server: {
     port: 5173,
     // host: "0.0.0.0",
-    // proxy: {
-    //   "/api": {
-    //     target: "http://8.134.200.160:611",
-    //     changeOrigin: true,
-    //     // rewrite: (path) => path.replace(/^\/api/, ""),
-    //   },
-    // },
+    proxy: {
+      "/api": {
+        target: "http://8.134.200.160:611",
+        changeOrigin: true,
+        // rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
   },
   base: "./", // 静态资源相对路径
   build: {
