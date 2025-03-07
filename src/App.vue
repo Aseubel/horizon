@@ -7,7 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <header>
       <div class="wrapper">
         <div class="logo animate__animated animate__bounceIn">
-          <el-avatar size="large" style="background-image: url(/public/images/PixPin_2025-03-07_16-04-19.png);" />
+          <el-avatar size="large" style="background-image: url(/images/PixPin_2025-03-07_16-04-19.png);" />
           <span class="logo-text">AutoGo Lab</span>
         </div>
         <nav class="main-nav animate__animated animate__fadeInDown">
@@ -34,14 +34,16 @@ body {
   background-image: url('/images/banner1.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* 这是关键属性，使背景图固定不随滚动而移动 */
+  background-attachment: fixed;
+  /* 这是关键属性，使背景图固定不随滚动而移动 */
   min-height: 100vh;
 }
 
 /* 添加一个半透明覆盖层，使内容更易读 */
 .app-container {
   min-height: 100vh;
-  background-color: rgba(255, 255, 255, 0.85); /* 白色半透明背景 */
+  background-color: rgba(255, 255, 255, 0.85);
+  /* 白色半透明背景 */
 }
 
 .main-content {
