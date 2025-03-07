@@ -18,21 +18,23 @@
       </div>
 
       <div class="device-display">
-        <el-carousel height="450px" :interval="5000" trigger="hover" indicator-position="outside" arrow="always">
+        <el-carousel height="550px" :interval="0" trigger="hover" indicator-position="outside" arrow="always">
           <el-carousel-item v-for="(device, index) in devices" :key="index" class="carousel-item">
             <div class="device-card">
-              <div class="device-image-container">
-                <el-image :src="device.image" alt="device image" fit="cover" class="device-image"
-                  :preview-src-list="[device.image]" />
-              </div>
-              <div class="device-content">
-                <h2 class="device-title">{{ device.deviceName }}</h2>
-                <div class="device-introduction">
-                  <p>{{ device.introduction }}</p>
+              <div class="device-content-wrapper">
+                <div class="device-image-container">
+                  <el-image :src="device.image" alt="device image" fit="contain" class="device-image"
+                    :preview-src-list="[device.image]" />
                 </div>
-                <el-button type="primary" :icon="Link" @click="openLink(device.link)" class="device-link-btn">
-                  了解更多
-                </el-button>
+                <div class="device-content">
+                  <h2 class="device-title">{{ device.deviceName }}</h2>
+                  <div class="device-introduction">
+                    <p>{{ device.introduction }}</p>
+                  </div>
+                  <el-button type="primary" :icon="Link" @click="openLink(device.link)" class="device-link-btn">
+                    了解更多
+                  </el-button>
+                </div>
               </div>
             </div>
           </el-carousel-item>
@@ -104,7 +106,6 @@ onMounted(() => {
 <style scoped>
 .page-container {
   padding: 2rem;
-  /* background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
   min-height: 100vh;
 }
 
@@ -178,26 +179,33 @@ onMounted(() => {
   overflow: hidden;
 }
 
+.device-content-wrapper {
+  display: flex;
+  height: 100%;
+}
+
 .device-image-container {
-  height: 60%;
-  overflow: hidden;
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .device-image {
   width: 100%;
-  height: 100%;
-  transition: transform 0.5s;
-}
-
-.device-image:hover {
-  transform: scale(1.05);
+  /* max-height: 500px; */
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .device-content {
+  flex: 1;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  height: 40%;
+  overflow: hidden;
 }
 
 .device-title {
@@ -210,6 +218,23 @@ onMounted(() => {
   flex: 1;
   overflow-y: auto;
   margin-bottom: 1rem;
+  /* 隐藏滚动条但保留功能 */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
+}
+
+/* 为Webkit浏览器（Chrome、Safari等）自定义滚动条 */
+.device-introduction::-webkit-scrollbar {
+  width: 6px;
+}
+
+.device-introduction::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.device-introduction::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
 }
 
 .device-introduction p {
@@ -236,16 +261,20 @@ onMounted(() => {
     flex-wrap: wrap;
   }
 
-  .device-card {
+  .device-content-wrapper {
     flex-direction: column;
   }
 
   .device-image-container {
-    height: 50%;
+    height: 300px;
+  }
+
+  .device-image {
+    max-height: 280px;
   }
 
   .device-content {
-    height: 50%;
+    padding-top: 0;
   }
 }
 </style>

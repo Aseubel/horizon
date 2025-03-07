@@ -149,7 +149,8 @@ onMounted(() => {
 }
 
 .section {
-  padding: 60px 20px;
+  /* padding: 60px 20px; */
+  padding: 10px 20px 60px 20px;
   margin-bottom: 40px;
   background: #f9f9f9;
   border-radius: 10px;
@@ -233,7 +234,7 @@ onMounted(() => {
     font-size: 2rem;
     max-width: 90%;
   }
-  
+
   .banner-overlay p {
     font-size: 1.2rem;
     max-width: 90%;
