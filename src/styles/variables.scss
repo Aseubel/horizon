@@ -1,0 +1,36 @@
+/* 全局背景渐变效果 */
+body {
+    transition: background-color 0.5s ease;
+    margin: 0 2%;
+  }
+  
+  html p{
+    letter-spacing: 0.8px;
+    color: grey;
+  }
+  
+  a {
+    transition: color 0.3s ease;
+  }
+  
+  h1 h2 h3 h4 {
+    color: #3E9BD4;
+  }
+  
+  /* 组件显示和关闭的渐变效果 */
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s ease;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+    opacity: 0;
+  }
+  
+  /* 其他全局样式 */
+  .page-container {
+    transition: all 0.3s ease;
+  }
+  
+  /* 自定义模态框的渐变效果 */
+  .custom-dialog-overlay {
+    transition: opacity 0.3s ease;
+  }
