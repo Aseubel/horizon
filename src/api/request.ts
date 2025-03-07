@@ -1,7 +1,7 @@
 import axios, { AxiosHeaders } from "axios";
 
 const _axios = axios.create({
-  // baseURL: import.meta.env.VITE_BACKEND_API_BASE_URL,
+  baseURL: "http://8.134.200.160:611", // import.meta.env.VITE_BACKEND_API_BASE_URL,
 });
 
 // 请求拦截器
