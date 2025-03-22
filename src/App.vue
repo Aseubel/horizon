@@ -7,7 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <header>
       <div class="wrapper">
         <div class="logo animate__animated animate__bounceIn">
-          <el-avatar size="large" style="background-image: url(/images/PixPin_2025-03-07_16-04-19.png);" />
+          <el-avatar size="large" style="background-image: url(/images/logo-small.jpg);" />
           <span class="logo-text">AutoGo Lab</span>
         </div>
         <nav class="main-nav animate__animated animate__fadeInDown">
@@ -31,7 +31,7 @@ import { RouterLink, RouterView } from 'vue-router'
 body {
   margin: 0;
   padding: 0;
-  background-image: url('/images/banner1.jpg');
+  /* background-image: url('/images/banner1.jpg'); */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

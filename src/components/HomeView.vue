@@ -12,12 +12,27 @@ const banners = ref([
   {
     title: '智能机器人前沿研究',
     description: '探索人工智能与机器人技术深度融合',
-    image: '/images/banner1.jpg'
+    image: '/images/home1.jpg'
   },
   {
     title: '产学研合作平台',
     description: '与多家知名企业建立联合实验室',
-    image: '/images/banner2.jpg'
+    image: '/images/home2.jpg'
+  },
+  {
+    title: '产学研合作平台',
+    description: '与多家知名企业建立联合实验室',
+    image: '/images/home3.jpg'
+  },
+  {
+    title: '产学研合作平台',
+    description: '与多家知名企业建立联合实验室',
+    image: '/images/home4.jpg'
+  },
+  {
+    title: '产学研合作平台',
+    description: '与多家知名企业建立联合实验室',
+    image: '/images/home5.jpg'
   }
 ])
 
@@ -80,7 +95,7 @@ onMounted(() => {
           </div>
         </el-col>
         <el-col :md="8" :sm="24">
-          <el-image src="/images/lab-photo.jpg" fit="cover" class="lab-photo" />
+          <el-image src="/images/home0.jpg" fit="cover" class="lab-photo" />
         </el-col>
       </el-row>
     </div>

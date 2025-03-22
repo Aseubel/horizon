@@ -4,7 +4,7 @@
       <h1 class="page-title">研究团队</h1>
       <p class="team-description">我们拥有一支充满激情和创造力的研究团队，致力于推动机器人技术的前沿发展</p>
     </div>
-    
+
     <div class="team-filter">
       <el-radio-group v-model="selectedTypeId" @change="fetchMembers" size="large">
         <el-radio-button v-for="type in memberTypes" :key="type.typeId" :label="type.typeId">
@@ -12,11 +12,10 @@
         </el-radio-button>
       </el-radio-group>
     </div>
-    
+
     <div class="team-members">
-      <div v-for="member in members" :key="member.memberId" 
-           class="member-card animate__animated animate__fadeIn"
-           @click="showMemberDetails(member)">
+      <div v-for="member in members" :key="member.memberId" class="member-card animate__animated animate__fadeIn"
+        @click="showMemberDetails(member)">
         <div class="member-image-container">
           <img :src="member.image" alt="member image" class="member-image" />
           <div class="member-overlay">
@@ -31,12 +30,7 @@
     </div>
 
     <!-- 成员详情模态框 -->
-    <el-dialog
-      v-model="dialogVisible"
-      title="成员详情"
-      width="50%"
-      custom-class="member-dialog"
-    >
+    <el-dialog v-model="dialogVisible" title="成员详情" width="50%" custom-class="member-dialog">
       <div v-if="selectedMember" class="member-details">
         <div class="member-profile">
           <img :src="selectedMember.image" alt="member profile" class="profile-image" />
@@ -45,7 +39,7 @@
             <p><strong>专业:</strong> {{ selectedMember.major }}</p>
           </div>
         </div>
-        
+
         <div class="member-links">
           <el-row :gutter="20">
             <el-col :span="12" v-if="selectedMember.github">
@@ -70,10 +64,10 @@
             </el-col>
           </el-row>
         </div>
-        
+
         <div class="member-experience" v-if="selectedMember.experience">
           <h3>研究经历</h3>
-          <p>{{ selectedMember.experience }}</p>
+          <p v-html="selectedMember.experience"></p>
         </div>
       </div>
     </el-dialog>
@@ -125,6 +119,9 @@ const fetchMembers = async (typeId: any) => {
     const response = await axios.get('/api/member/', { params: { typeId } })
     if (response.data.code === 200) {
       members.value = response.data.data
+      members.value.forEach(member => {
+        member.experience = member.experience ? member.experience.replace(/\n/g, '<br>') : ""
+      })
     }
   } catch (error) {
     console.error('Error fetching members:', error)
