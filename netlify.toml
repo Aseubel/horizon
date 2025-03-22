@@ -1,13 +1,13 @@
-# 所有路由重定向到 index.html，解决 SPA 刷新 404 问题
-# [[redirects]]
-#   from = "/*"
-#   to = "/index.html"
-#   status = 200
-
 # API 请求代理设置
 [[redirects]]
 from = "/api/*"
-to = "http://8.134.200.160:611/api/:splat"
+to = "http://110.41.15.181:611/api/:splat"
 status = 200
 force = true
 headers = { X-From = "Netlify" }
+
+# 所有路由重定向到 index.html，解决 SPA 刷新 404 问题
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
