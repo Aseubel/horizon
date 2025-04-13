@@ -73,6 +73,9 @@ const fetchResearchesByType = async () => {
       const response = await axios.get('/api/research', { params: { typeId: type.typeId } })
       if (response.data.code === 200) {
         researches.value[type.typeId] = response.data.data
+        researches.value[type.typeId].forEach(research => {
+          research.image = "http://127.0.0.1:611/api/file/picture?filePath=" + research.image
+        })
       }
     }
   } catch (error) {

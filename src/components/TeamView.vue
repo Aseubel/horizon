@@ -121,6 +121,7 @@ const fetchMembers = async (typeId: any) => {
       members.value = response.data.data
       members.value.forEach(member => {
         member.experience = member.experience ? member.experience.replace(/\n/g, '<br>') : ""
+        member.image = "http://127.0.0.1:611/api/file/picture?filePath=" + member.image
       })
     }
   } catch (error) {

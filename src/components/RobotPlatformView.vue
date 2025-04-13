@@ -88,6 +88,11 @@ const selectType = async (typeId: string) => {
     const response = await axios.get('/api/device', { params: { typeId } })
     if (response.data.code === 200) {
       devices.value = response.data.data
+      devices.value.forEach(device => {
+        console.log(device.image)
+        device.image = "http://127.0.0.1:611/api/file/picture?filePath=" + device.image
+        console.log(device.image)
+      })
     }
   } catch (error) {
     console.error('Error fetching devices:', error)
